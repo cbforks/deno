@@ -1933,6 +1933,7 @@ name = "deno_runtime"
 version = "0.177.0"
 dependencies = [
  "deno_ast",
+ "deno_broadcast_channel",
  "deno_cache",
  "deno_canvas",
  "deno_console",

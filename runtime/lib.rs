@@ -1,6 +1,6 @@
 // Copyright 2018-2024 the Deno authors. All rights reserved. MIT license.
 
-// pub use deno_broadcast_channel;
+pub use deno_broadcast_channel;
 pub use deno_cache;
 pub use deno_canvas;
 pub use deno_console;
@@ -56,12 +56,12 @@ pub struct UnstableGranularFlag {
 
 // NOTE(bartlomieju): keep IDs in sync with `runtime/90_deno_ns.js` (search for `unstableFeatures`)
 pub static UNSTABLE_GRANULAR_FLAGS: &[UnstableGranularFlag] = &[
-  // UnstableGranularFlag {
-  //   name: deno_broadcast_channel::UNSTABLE_FEATURE_NAME,
-  //   help_text: "Enable unstable `BroadcastChannel` API",
-  //   show_in_help: true,
-  //   id: 1,
-  // },
+  UnstableGranularFlag {
+    name: deno_broadcast_channel::UNSTABLE_FEATURE_NAME,
+    help_text: "Enable unstable `BroadcastChannel` API",
+    show_in_help: true,
+    id: 1,
+  },
   UnstableGranularFlag {
     name: deno_cron::UNSTABLE_FEATURE_NAME,
     help_text: "Enable unstable Deno.cron API",
