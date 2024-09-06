@@ -41,7 +41,7 @@ path = "examples/extension/main.rs"
 
 [build-dependencies]
 deno_ast.workspace = true
-deno_broadcast_channel.workspace = true
+# deno_broadcast_channel.workspace = true
 deno_cache.workspace = true
 deno_canvas.workspace = true
 deno_console.workspace = true
@@ -72,7 +72,7 @@ winapi.workspace = true
 
 [dependencies]
 deno_ast.workspace = true
-deno_broadcast_channel.workspace = true
+# deno_broadcast_channel.workspace = true
 deno_cache.workspace = true
 deno_canvas.workspace = true
 deno_console.workspace = true

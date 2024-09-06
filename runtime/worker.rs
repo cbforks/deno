@@ -9,7 +9,7 @@ use std::sync::Arc;
 use std::time::Duration;
 use std::time::Instant;
 
-use deno_broadcast_channel::InMemoryBroadcastChannel;
+// use deno_broadcast_channel::InMemoryBroadcastChannel;
 use deno_cache::CreateCache;
 use deno_cache::SqliteBackedCache;
 use deno_core::error::AnyError;
@@ -178,7 +178,7 @@ pub struct WorkerOptions {
   pub cache_storage_dir: Option<std::path::PathBuf>,
   pub origin_storage_dir: Option<std::path::PathBuf>,
   pub blob_store: Arc<BlobStore>,
-  pub broadcast_channel: InMemoryBroadcastChannel,
+  // pub broadcast_channel: InMemoryBroadcastChannel,
 
   /// The store to use for transferring SharedArrayBuffers between isolates.
   /// If multiple isolates should have the possibility of sharing
@@ -222,7 +222,7 @@ impl Default for WorkerOptions {
       get_error_class_fn: Default::default(),
       origin_storage_dir: Default::default(),
       cache_storage_dir: Default::default(),
-      broadcast_channel: Default::default(),
+      // broadcast_channel: Default::default(),
       root_cert_store_provider: Default::default(),
       node_services: Default::default(),
       blob_store: Default::default(),
@@ -380,10 +380,10 @@ impl MainWorker {
       deno_webstorage::deno_webstorage::init_ops_and_esm(
         options.origin_storage_dir.clone(),
       ),
-      deno_crypto::deno_crypto::init_ops_and_esm(options.seed),
-      deno_broadcast_channel::deno_broadcast_channel::init_ops_and_esm(
-        options.broadcast_channel.clone(),
-      ),
+      // deno_crypto::deno_crypto::init_ops_and_esm(options.seed),
+      // deno_broadcast_channel::deno_broadcast_channel::init_ops_and_esm(
+      //   options.broadcast_channel.clone(),
+      // ),
       deno_ffi::deno_ffi::init_ops_and_esm::<PermissionsContainer>(),
       deno_net::deno_net::init_ops_and_esm::<PermissionsContainer>(
         options.root_cert_store_provider.clone(),

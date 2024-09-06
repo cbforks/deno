@@ -10,7 +10,7 @@ use crate::worker::import_meta_resolve_callback;
 use crate::worker::validate_import_attributes_callback;
 use crate::worker::FormatJsErrorFn;
 use crate::BootstrapOptions;
-use deno_broadcast_channel::InMemoryBroadcastChannel;
+// use deno_broadcast_channel::InMemoryBroadcastChannel;
 use deno_cache::CreateCache;
 use deno_cache::SqliteBackedCache;
 use deno_core::error::AnyError;
@@ -371,7 +371,7 @@ pub struct WebWorkerOptions {
   pub maybe_inspector_server: Option<Arc<InspectorServer>>,
   pub get_error_class_fn: Option<GetErrorClassFn>,
   pub blob_store: Arc<BlobStore>,
-  pub broadcast_channel: InMemoryBroadcastChannel,
+  // pub broadcast_channel: InMemoryBroadcastChannel,
   pub shared_array_buffer_store: Option<SharedArrayBufferStore>,
   pub compiled_wasm_module_store: Option<CompiledWasmModuleStore>,
   pub cache_storage_dir: Option<std::path::PathBuf>,
@@ -457,9 +457,9 @@ impl WebWorker {
       ),
       deno_webstorage::deno_webstorage::init_ops_and_esm(None).disable(),
       deno_crypto::deno_crypto::init_ops_and_esm(options.seed),
-      deno_broadcast_channel::deno_broadcast_channel::init_ops_and_esm(
-        options.broadcast_channel.clone(),
-      ),
+      // deno_broadcast_channel::deno_broadcast_channel::init_ops_and_esm(
+      //   options.broadcast_channel.clone(),
+      // ),
       deno_ffi::deno_ffi::init_ops_and_esm::<PermissionsContainer>(),
       deno_net::deno_net::init_ops_and_esm::<PermissionsContainer>(
         options.root_cert_store_provider.clone(),
